@@ -58,14 +58,11 @@ server.register({
 		const db = server.plugins['hapi-mongoose'].connection; // Get the current connection for this server instance
 		const mongoose = server.plugins['hapi-mongoose'].lib;
 		const Schema = mongoose.Schema;
-
-		var trainSchema = new Schema({
+		const trainSchema = new Schema({
 			//TODO
 		});
-
-		var Train = db.model('Train', trainSchema);
-
-		var small = new Train({ size: 'small' });
+		const Train = db.model('Train', trainSchema);
+		const small = new Train({ size: 'small' });
 
 		small.save(function (err) {
 			if (err) {
@@ -73,11 +70,7 @@ server.register({
 			}
 			// saved!
 		});
-
-
-
 	});
-
 });
 
 
