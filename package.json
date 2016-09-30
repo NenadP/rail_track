@@ -14,9 +14,12 @@
   "author": "Nenad Pantic",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.4.6",
+    "dotenv": "^2.0.0",
     "hapi": "^15.0.3",
-    "hapi-mongoose": "^1.0.1",
+    "mongodb-uri": "^0.9.7",
     "mongoose": "^4.6.1",
+    "require-directory": "^2.1.1",
     "xml2js": "^0.4.17"
   }
 }
