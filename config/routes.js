@@ -1,3 +1,3 @@
 const trains = require('../modules/trains/trains.routes');
-
-module.exports = [].concat(trains);
+const stations = require('../modules/stations/stations.routes');
+module.exports = [].concat(trains, stations);
