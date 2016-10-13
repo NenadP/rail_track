@@ -35,7 +35,3 @@ server.register([
 		console.log('Server is running at:', server.info.uri);
 	});
 });
-
-
-
-

@@ -9,7 +9,7 @@ module.exports = [
 		name: 'default',
 		enabled: true,
 		auth: false,
-		schedule: 'on the first day of the week',
+		schedule: 'every 5 seconds',
 		method(data, callback) {
 			const options = {
 				host: 'api.irishrail.ie',
@@ -26,16 +26,16 @@ module.exports = [
 				response.on('end', () => {
 					parseString(xml, (error, result) => {
 						const stations = result.ArrayOfObjStation.objStation;
-						for (let i = 0; i < stations.length; i++) {
-							const station = new Station(stations[i]);
+						stations.forEach((stationData) => {
+							const station = new Station(stationData);
 							station.saveAsync()
 								.then(() =>  {
-									console.log('saved', station.StationDesc)
+									console.log('saved', station.StationDesc);
 								})
 								.catch((error) => {
-									console.log('error', error)
+									console.log('error', error);
 								});
-						}
+						});
 					})
 				});
 
