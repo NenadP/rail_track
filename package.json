@@ -22,5 +22,8 @@
     "mongoose": "^4.6.1",
     "require-directory": "^2.1.1",
     "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.4"
   }
 }

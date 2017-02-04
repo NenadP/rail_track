@@ -1,4 +1,5 @@
 const http = require('http');
+const _ = require('lodash');
 const parseString = require('xml2js').parseString;
 
 module.exports = [
@@ -24,20 +25,18 @@ module.exports = [
 						const Promise = require('bluebird');
 						const mongoose = Promise.promisifyAll(require('mongoose'));
 						const Train = mongoose.model('Train');
+						const trains = result.ArrayOfObjTrainPositions.objTrainPositions;
+						_.each(trains, item => {
+							const train = new Train({ trainCode: item.TrainCode });
+							train.saveAsync()
+								.then(() =>  {
+									console.log('saved Train position')
+								})
+								.catch((error) => {
+									console.log('error saving Train position')
+								});
+						});
 
-						var train = new Train({trainCode: 'test'});
-
-						train.saveAsync()
-							.then(() =>  {
-								console.log('saved')
-							})
-							.catch((error) => {
-								console.log('error')
-							});
-
-						for (let i = 0; i < result.length; i++) {
-							console.log(result[i].trainCode);
-						}
 						reply({message: result});
 					})
 				});
