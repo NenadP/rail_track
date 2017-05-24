@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RailTrack {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RailTrack.class, args);
+		SpringApplication.run(RailTrack.class, args);	
 	}
 }

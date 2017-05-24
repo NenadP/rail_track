@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TrainsController {
 
-    private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/trains")
-    public Trains trains(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Trains(counter.incrementAndGet(),
-                            String.format(template, name));
+    public Train trains(@RequestParam(value="name", defaultValue="World") String name) {
+    	TrainsService trainsService = new TrainsService();
+    	String currentTrains = trainsService.getCurrentTrains();
+        return new Train(counter.incrementAndGet(), currentTrains);
     }
 }
